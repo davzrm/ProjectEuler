@@ -25,7 +25,7 @@ class Solution1 {
 			if (firstNumber % 11 != 0) {
 				continue;
 			}
-			for (secondNumber in 100...1000) {
+			for (secondNumber in firstNumber...1000) {
 				// For each product, assign the number to the temporary variable if it is palindrome
 				var productNum = firstNumber * secondNumber;
 				if (holderNum < productNum && isPalindrome(productNum)) {
