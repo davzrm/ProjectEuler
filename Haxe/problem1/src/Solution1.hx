@@ -15,7 +15,7 @@ class Solution1 {
 		var sum5 = getSumOfMultiple(5);
 		var sum15 = getSumOfMultiple(15);
 
-		trace('The final answer is $sum3 + $sum5 - $sum15 = ${sum3 + sum5 + sum15}');
+		trace('The final answer is $sum3 + $sum5 - $sum15 = ${sum3 + sum5 - sum15}');
 		var timeStamp2 = Timer.stamp();
 
 		trace('Time taken: ${timeStamp2 - timeStamp1}\n');

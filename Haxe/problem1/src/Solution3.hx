@@ -15,7 +15,7 @@ class Solution3 {
 		var sum5 = getSumOfMultiple(5);
 		var sum15 = getSumOfMultiple(15);
 
-		trace('The final answer is $sum3 + $sum5 - $sum15 = ${sum3 + sum5 + sum15}');
+		trace('The final answer is $sum3 + $sum5 - $sum15 = ${sum3 + sum5 - sum15}');
 		var timeStamp2 = Timer.stamp();
 
 		trace('Time taken: ${timeStamp2 - timeStamp1}\n');
@@ -28,8 +28,8 @@ class Solution3 {
 	inline private function getSumOfMultiple(multiple) {
 		trace('Using the arithmetic series formula');
 
-		var seriesCount = Math.floor(upperLimit / multiple);
-		var sum = (seriesCount / 2) * (2 * multiple * (seriesCount - 1) * multiple);
+		var seriesCount = Math.floor((upperLimit - 1) / multiple);
+		var sum = (seriesCount / 2) * (2 * multiple + (seriesCount - 1) * multiple);
 		// print sum to console
 		trace('The sum of the series of multiple $multiple: $sum\n');
 
