@@ -22,6 +22,9 @@ class Solution1 {
 
 		// Calculate from 100 to 999
 		for (firstNumber in 100...1000) {
+			if (firstNumber % 11 != 0) {
+				continue;
+			}
 			for (secondNumber in 100...1000) {
 				// For each product, assign the number to the temporary variable if it is palindrome
 				var productNum = firstNumber * secondNumber;
