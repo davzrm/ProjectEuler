@@ -5,12 +5,12 @@ import lib.AbSolution;
 class Solution1 extends AbSolution {
 	public function new() {
 		super();
-		trace('test');
 	}
 
 	private override function computeSolution() {
 		var sumOfSquares = sumOfSquares(100);
 		var squareOfSum = squareOfSum(100);
+		trace('Sum of squares: $sumOfSquares, Square of sum: $squareOfSum');
 		trace('The difference is ${squareOfSum - sumOfSquares}');
 	};
 
