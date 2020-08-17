@@ -22,7 +22,6 @@ class Solution1 {
 		var dividend = 20;
 		while (true) {
 			for (divisor in 2...(20 + 1)) {
-				trace(divisor);
 				if (dividend % divisor != 0) {
 					break;
 				} else if (divisor == 20) {
@@ -31,7 +30,7 @@ class Solution1 {
 				}
 			}
 			trace('Current dividend: $dividend');
-			dividend = dividend + 16;
+			dividend = dividend + 20;
 		}
 	};
 }

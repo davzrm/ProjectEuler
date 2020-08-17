@@ -24,7 +24,6 @@ class Solution2 {
 		for (divisor in 2...(20 + 1)) {
 			var tempDivisor = divisor;
 			var tempFactor = 2;
-			trace(divisor);
 			while (tempFactor <= tempDivisor) {
 				if (isPrime(tempFactor)) {
 					var exponent = 0;
@@ -38,7 +37,6 @@ class Solution2 {
 					}
 
 					if (exponent >= 1) {
-						trace('current Divisor: $divisor, current array: $multiplyMap');
 						if (multiplyMap[tempFactor] == null || multiplyMap[tempFactor] < exponent) {
 							multiplyMap[tempFactor] = exponent;
 						}
