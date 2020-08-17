@@ -7,8 +7,9 @@ class Solution1 {
 
 	public function getSolution() {
 		var stamp1 = Timer.stamp();
-		computeSolution(20);
+		computeSolution();
 		var stamp2 = Timer.stamp();
+		trace('Time taken: ${stamp2 - stamp1}');
 	}
 
 	/**
@@ -17,20 +18,20 @@ class Solution1 {
 	 * that is evenly divisible
 	 * by all numbers from 1 to 20
 	 */
-	private function computeSolution(number) {
+	private function computeSolution() {
 		var dividend = 20;
 		while (true) {
-			for (divisor in 2...number + 1) {
+			for (divisor in 2...(20 + 1)) {
 				trace(divisor);
 				if (dividend % divisor != 0) {
 					break;
-				} else if (divisor == number) {
+				} else if (divisor == 20) {
 					trace('The smallest number possible is $dividend');
 					return dividend;
 				}
 			}
 			trace('Current dividend: $dividend');
-			dividend = dividend + 2;
+			dividend = dividend + 16;
 		}
 	};
 }
