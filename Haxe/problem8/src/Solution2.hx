@@ -20,12 +20,12 @@ class Solution2 extends AbSolution {
 			return;
 		};
 
-		var adjacentNum = 13;
 		var holderNum:Int64 = 1;
 		var holderArray = [];
 		var largestProduct:Int64 = 0;
 		var largestArray = [];
 
+		var adjacentNum = 13;
 		for (i in 0...adjacentNum) {
 			var digit = Std.parseInt(fileContent.charAt(i));
 			holderNum *= digit;
@@ -37,7 +37,6 @@ class Solution2 extends AbSolution {
 			// Load new digit & test if 0
 			var newDigit = Std.parseInt(fileContent.charAt(index));
 
-			// If 0
 			// Test subsequent 13 digits
 			if (newDigit == 0) {
 				// Reset holder number
@@ -46,29 +45,34 @@ class Solution2 extends AbSolution {
 
 				// Set index to the position AFTER the 0
 				index++;
-				for (lookAhead in index...index + adjacentNum) {
-					var nextDigit = Std.parseInt(fileContent.charAt(lookAhead));
+				var checkPoint = index;
+				var resetSequence = index + adjacentNum;
+
+				while (index < resetSequence) {
+					var nextDigit = Std.parseInt(fileContent.charAt(index));
 
 					// If 0, set index to the latest position of 0
 					// Restart 0 test
-					if (nextDigit == 0 || lookAhead >= fileContent.length) {
-						index = lookAhead;
-						break;
+					if (nextDigit == 0) {
+						index++;
+						resetSequence += (index - checkPoint);
+						checkPoint = index;
+						if (resetSequence < fileContent.length) {
+							holderNum = 1;
+							holderArray = [];
+							continue;
+						} else {
+							break;
+						}
 					}
-
 					holderNum *= nextDigit;
 					holderArray.push(nextDigit);
+					index++;
+				}
 
-					// If lookAhead reaches the end of the loop, compare old with largest product
-					var isEndReached = lookAhead == index + adjacentNum - 1;
-					if (isEndReached) {
-						if (largestProduct < holderNum) {
-							largestProduct = holderNum;
-							largestArray = holderArray;
-						}
-
-						index = index + adjacentNum;
-					}
+				if (largestProduct < holderNum) {
+					largestProduct = holderNum;
+					largestArray = holderArray;
 				}
 				continue;
 			}
@@ -76,7 +80,7 @@ class Solution2 extends AbSolution {
 			// Compare -- If new digit is more than old digit
 			// Multiply current product with new digit
 			// Divide current product by old digit
-			var oldDigit = Std.parseInt(fileContent.charAt(index - adjacentNum));
+			var oldDigit = Std.parseInt(fileContent.charAt(index));
 			holderNum = holderNum * newDigit / oldDigit;
 			holderArray[index % adjacentNum] = newDigit;
 
@@ -87,7 +91,6 @@ class Solution2 extends AbSolution {
 
 			index++;
 		}
-
 		trace('The 13 numbers are: $largestArray');
 		trace('The greatest product is $largestProduct');
 	}
@@ -101,19 +104,5 @@ class Solution2 extends AbSolution {
 		return true;
 		#end
 		return false;
-	}
-
-	/**
-	 * Takes all the elements of the array
-	 * Multiply all of them
-	 * Return the product
-	 * @param array
-	 */
-	private function multiplyElements(array:Array<Int>) {
-		var product = 1;
-		for (i in array) {
-			product *= i;
-		}
-		return product;
 	}
 }
