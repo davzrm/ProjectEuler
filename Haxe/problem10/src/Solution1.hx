@@ -13,14 +13,10 @@ class Solution1 extends AbSolution {
 
 	private override function computeSolution() {
 		var limit = 2000000;
-		var sum = 2;
+		var sum = 0;
 		for (i in 2...limit) {
-			if (i % 2 == 0) {
-				continue;
-			}
 			if (isPrime(i)) {
 				sum += i;
-				trace('prime: $i, sum: $sum');
 			}
 		}
 
