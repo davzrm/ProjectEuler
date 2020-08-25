@@ -18,16 +18,20 @@ class Solution1 extends AbSolution {
 			// Create the triangle number
 			triangleNumber += index;
 
-			// Then find all its factors & push them into array
+			// Square root the triangle number,
+			// add an additional divisor to the total if a perfect square was found
+			var root = Math.sqrt(triangleNumber);
+			var additionalDivisor = root % 1 == 0 ? 1 : 0;
+
 			var divisorCount = 0;
-			for (i in 1...Math.ceil(Math.sqrt(triangleNumber))) {
+			for (i in 1...Math.ceil(root)) {
 				if (triangleNumber % i == 0) {
 					divisorCount++;
 				}
 			}
 
-			// Check if the array has over 500 factors
-			if (divisorCount * 2 > 500) {
+			divisorCount = (divisorCount * 2) + additionalDivisor;
+			if (divisorCount > 500) {
 				break;
 			}
 			index++;
