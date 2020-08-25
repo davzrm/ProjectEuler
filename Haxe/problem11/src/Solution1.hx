@@ -3,8 +3,6 @@ package src;
 import sys.io.File;
 import lib.AbSolution;
 
-using StringTools;
-
 class Solution1 extends AbSolution {
 	public function new() {
 		super();
