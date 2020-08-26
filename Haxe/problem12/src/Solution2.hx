@@ -5,7 +5,13 @@ import lib.AbSolution;
 /**
  * Using prime factorization,
  * We calculate the number of divisors by
- * simply multiplying all the (exponents + 1) for each prime factor
+ * simply multiplying all the (exponents + 1) for each prime factor of that number
+ * since the exponents shows how many times a prime factor can be used
+ * (a.k.a how many times the number can be divided by the factor, hence leading to Combination)
+ * ((we add 1 to exponent because the exponent can be 0))
+ * '
+ * ex. 28 = 2^2 * 7^1,
+ * therefore... divisorCount = (2+1) * (1+1)
  */
 class Solution2 extends AbSolution {
 	public function new() {
