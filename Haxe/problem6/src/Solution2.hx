@@ -2,14 +2,14 @@ package src;
 
 import lib.AbSolution;
 
+/**
+ * Use the power of arithmetic and compute the answer.
+ */
 class Solution2 extends AbSolution {
 	public function new() {
 		super();
 	}
 
-	/**
-	 * Use the power of arithmetic and compute the answer.
-	 */
 	private override function computeSolution() {
 		var upperLimit = 100;
 		var sumOfSquares = upperLimit * (upperLimit + 1) * (upperLimit * 2 + 1) / 6;

@@ -1,13 +1,14 @@
 package src;
 
-import haxe.Timer;
+import lib.AbSolution;
 
-class Solution1 {
+class Solution1 extends AbSolution {
 	public function new() {
-		var timeStamp1 = Timer.stamp();
+		super();
+	}
+
+	override function computeSolution() {
 		trace(sumOfEvenFibonacci(buildFibonacci(4000000)));
-		var timeStamp2 = Timer.stamp();
-		trace('Time taken: ${timeStamp2 - timeStamp1}');
 	}
 
 	/**

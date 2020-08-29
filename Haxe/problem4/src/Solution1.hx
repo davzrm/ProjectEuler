@@ -1,22 +1,17 @@
 package src;
 
+import lib.AbSolution;
 import haxe.Int64;
-import haxe.Timer;
 
-class Solution1 {
-	public function new() {}
-
-	public function getSolution() {
-		var stamp1 = Timer.stamp();
-		computeSolution();
-		var stamp2 = Timer.stamp();
-		trace('Time taken: ${stamp2 - stamp1}');
+class Solution1 extends AbSolution {
+	public function new() {
+		super();
 	}
 
 	/**
 	 * Compute the product of 3-digit numbers until the largest palindrome is calculated.
 	 */
-	private function computeSolution() {
+	override private function computeSolution() {
 		// Create temporary variable to hold the biggest palindrome
 		var holderNum = 0;
 
@@ -30,7 +25,6 @@ class Solution1 {
 				var productNum = firstNumber * secondNumber;
 				if (holderNum < productNum && isPalindrome(productNum)) {
 					holderNum = productNum;
-					trace('$holderNum from $firstNumber * $secondNumber');
 				}
 			}
 		}

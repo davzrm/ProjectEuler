@@ -2,6 +2,9 @@ package src;
 
 import lib.AbSolution;
 
+/**
+ * Brute force
+ */
 class Solution1 extends AbSolution {
 	public function new() {
 		super();

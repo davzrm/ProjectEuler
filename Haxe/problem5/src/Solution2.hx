@@ -1,24 +1,20 @@
 package src;
 
+import lib.AbSolution;
 import haxe.Timer;
 
-class Solution2 {
-	public function new() {}
-
-	public function getSolution() {
-		var stamp1 = Timer.stamp();
-		computeSolution();
-		var stamp2 = Timer.stamp();
-		trace('Time taken: ${stamp2 - stamp1}');
+/**
+ * Find the smallest multiple
+ * evenly divisible by 1 to 20,
+ * by only multiplying numbers with
+ * the highest order after prime factorization
+ */
+class Solution2 extends AbSolution {
+	public function new() {
+		super();
 	}
 
-	/**
-	 * Find the smallest multiple
-	 * evenly divisible by 1 to 20,
-	 * by only multiplying numbers with
-	 * the highest order after prime factorization
-	 */
-	private function computeSolution() {
+	override private function computeSolution() {
 		var multiplyMap = new Map<Int, Int>();
 
 		for (divisor in 2...(20 + 1)) {

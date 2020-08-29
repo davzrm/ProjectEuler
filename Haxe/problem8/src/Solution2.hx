@@ -1,12 +1,11 @@
 package src;
 
-import haxe.macro.Expr.StringLiteralKind;
 import haxe.Int64;
 import sys.io.File;
 import lib.AbSolution;
 
 /**
- * Brute Force Method
+ * Brute Force v.2
  */
 class Solution2 extends AbSolution {
 	public function new() {

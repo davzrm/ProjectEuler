@@ -1,18 +1,18 @@
 package src;
 
+import lib.AbSolution;
 import haxe.Int64;
 import haxe.Timer;
 
-class Solution2 {
-	public function new() {}
+class Solution2 extends AbSolution {
+	public function new() {
+		super();
+	}
 
-	public function getSolution() {
-		var stamp1 = Timer.stamp();
+	override function computeSolution() {
 		var integerBig:Int64 = Int64.fromFloat(600851475143);
 		var primeNumber = computeLargestPrimeFactor(integerBig);
 		trace('Largest prime factor is $primeNumber');
-		var stamp2 = Timer.stamp();
-		trace('Time taken: ${stamp2 - stamp1}');
 	}
 
 	/**

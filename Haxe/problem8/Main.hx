@@ -1,11 +1,11 @@
 import lib.AbSolution;
-import haxe.rtti.CType.Abstractdef;
 import src.*;
 
 /**
  * Find the thirteen adjacent digits in the 1000-digit number
  * that have the greatest product.
  * What is the value of this product?
+ * (Number in number.txt)
  */
 class Main {
 	public static function main() {

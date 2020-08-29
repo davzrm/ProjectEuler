@@ -2,14 +2,14 @@ package src;
 
 import lib.AbSolution;
 
+/**
+ * Brute force method
+ */
 class Solution1 extends AbSolution {
 	public function new() {
 		super();
 	}
 
-	/**
-	 * Brute force method
-	 */
 	private override function computeSolution() {
 		// Create temporary variable to hold count
 		var primeNumCount = 0;

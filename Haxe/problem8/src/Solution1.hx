@@ -1,13 +1,11 @@
 package src;
 
 import haxe.Int64;
-import haxe.macro.Expr.QuoteStatus;
-import haxe.Json;
 import sys.io.File;
 import lib.AbSolution;
 
 /**
- * Brute Force Method
+ * Brute Force
  */
 class Solution1 extends AbSolution {
 	public function new() {

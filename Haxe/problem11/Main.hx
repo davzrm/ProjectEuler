@@ -2,9 +2,10 @@ import lib.AbSolution;
 import src.*;
 
 /**
- * Find the difference between
- * the sum of the squares of the first one hundred natural numbers and
- * the square of the sum.
+ * What is the greatest product of four adjacent numbers
+ * in the same direction (up, down, left, right, or diagonally)
+ * in the 20×20 grid?
+ * (Grid in source.txt)
  */
 class Main {
 	public static function main() {

@@ -1,36 +1,34 @@
 package src;
 
+import lib.AbSolution;
 import haxe.Timer;
 
-class Solution1 {
-	public function new() {}
-
-	public function getSolution() {
-		var stamp1 = Timer.stamp();
-		computeSolution();
-		var stamp2 = Timer.stamp();
-		trace('Time taken: ${stamp2 - stamp1}');
+/**
+ * Brute force
+ */
+class Solution1 extends AbSolution {
+	public function new() {
+		super();
 	}
 
-	/**
-	 * Starting from number 20,
-	 * finds the first number
-	 * that is evenly divisible
-	 * by all numbers from 1 to 20
-	 */
-	private function computeSolution() {
+	override private function computeSolution() {
 		var dividend = 20;
+		var isFound = false;
 		while (true) {
 			for (divisor in 2...(20 + 1)) {
 				if (dividend % divisor != 0) {
 					break;
 				} else if (divisor == 20) {
-					trace('The smallest number possible is $dividend');
-					return dividend;
+					isFound = true;
 				}
 			}
-			trace('Current dividend: $dividend');
+
+			if (isFound) {
+				break;
+			}
+
 			dividend = dividend + 20;
 		}
+		trace('The smallest multiple is $dividend');
 	};
 }

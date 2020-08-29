@@ -3,15 +3,15 @@ package src;
 import haxe.Int64;
 import lib.AbSolution;
 
+/**
+ * Using the sieve of Eratothenes &
+ * the upper bound formula for the nth prime number
+ */
 class Solution2 extends AbSolution {
 	public function new() {
 		super();
 	}
 
-	/**
-	 * Using the sieve of Eratothenes &
-	 * the upper bound formula for the nth prime number
-	 */
 	private override function computeSolution() {
 		var upperBound = upperBoundForPrimeNumber(10001);
 		var sieve = [for (i in 0...upperBound + 1) true];
