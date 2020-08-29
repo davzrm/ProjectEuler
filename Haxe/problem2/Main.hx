@@ -2,8 +2,9 @@ import lib.AbSolution;
 import src.*;
 
 /**
- * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
- * (In source.txt)
+ * By considering the terms in the Fibonacci sequence whose values
+ * do not exceed four million,
+ * find the sum of the even-valued terms.
  */
 class Main {
 	public static function main() {

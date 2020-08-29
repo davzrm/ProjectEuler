@@ -1,3 +1,4 @@
+import lib.AbSolution;
 import src.*;
 
 /**
@@ -9,13 +10,13 @@ import src.*;
  */
 class Main {
 	public static function main() {
-		var solution1 = new Solution1();
+		var solution1:AbSolution = new Solution1(); // TEST AT YOUR OWN RISK
 		solution1.getSolution();
 
-		var solution2 = new Solution2();
+		var solution2:AbSolution = new Solution2();
 		solution2.getSolution();
 
-		var solution3 = new Solution3();
+		var solution3:AbSolution = new Solution3();
 		solution3.getSolution();
 	}
 }

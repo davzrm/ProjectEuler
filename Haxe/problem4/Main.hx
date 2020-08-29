@@ -2,8 +2,7 @@ import lib.AbSolution;
 import src.*;
 
 /**
- * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
- * (In source.txt)
+ * Find the largest palindrome made from the product of two 3-digit numbers.
  */
 class Main {
 	public static function main() {
