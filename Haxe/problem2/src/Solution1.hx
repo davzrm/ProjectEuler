@@ -2,13 +2,16 @@ package src;
 
 import lib.AbSolution;
 
+/**
+ * Brute force
+ */
 class Solution1 extends AbSolution {
 	public function new() {
 		super();
 	}
 
 	override function computeSolution() {
-		trace(sumOfEvenFibonacci(buildFibonacci(4000000)));
+		trace('The sum of all evens below 4M in a Fibonacci sequence is: ${sumOfEvenFibonacci(buildFibonacci(4000000))}');
 	}
 
 	/**
