@@ -22,7 +22,17 @@ class Solution1 extends AbSolution {
 		var date = 7;
 		for (currentYear in 1900...2001) {
 			for (currentMonth in 0...12) {
-				while (date < daysInMonth[currentMonth]) {
+				var daysToSubtract = daysInMonth[currentMonth];
+				// February
+				// Leap year = century year ? /400 : /4
+				if (currentMonth == 1) {
+					var leapYear = currentYear % 100 == 0 ? currentYear % 400 == 0 : currentYear % 4 == 0;
+					if (leapYear) {
+						daysToSubtract += 1;
+					}
+				}
+
+				while (date < daysToSubtract) {
 					if (date == 1 && currentYear > 1900) {
 						firstOfMonthSundayCount++;
 					}
@@ -30,15 +40,6 @@ class Solution1 extends AbSolution {
 					date += 7;
 				}
 
-				var daysToSubtract = daysInMonth[currentMonth];
-				// February
-				if (currentMonth == 1) {
-					// Leap year = century year ? /400 : /4
-					var leapYear = currentYear % 100 == 0 ? currentYear % 400 == 0 : currentYear % 4 == 0;
-					if (leapYear) {
-						daysToSubtract += 1;
-					}
-				}
 				date -= daysToSubtract;
 			}
 		}
