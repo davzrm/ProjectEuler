@@ -15,12 +15,9 @@ class Solution1 extends AbSolution {
 		var digitArray = [1];
 		var index = 1;
 		while (index <= upperBound) {
-			// Multiply each digit in the array with the index
 			var digitIndex = digitArray.length - 1;
 			var spillOver = 0;
 			while (digitIndex >= 0) {
-				// Every place value spill over will be recorded
-				// & added to the next element in the array
 				var product = digitArray[digitIndex] * index + spillOver;
 				digitArray[digitIndex] = product % 10;
 				spillOver = Math.floor(product / 10);
