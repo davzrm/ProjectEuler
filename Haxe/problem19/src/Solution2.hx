@@ -3,18 +3,18 @@ package src;
 import lib.AbSolution;
 
 enum abstract Month(Int) from Int to Int {
-	inline var JAN = 1;
-	inline var FEB = 2;
-	inline var MAR = 3;
-	inline var APR = 4;
-	inline var MAY = 5;
-	inline var JUN = 6;
-	inline var JUL = 7;
-	inline var AUG = 8;
-	inline var SEP = 9;
-	inline var OCT = 10;
-	inline var NOV = 11;
-	inline var DEC = 12;
+	inline var JAN = 0;
+	inline var FEB = 1;
+	inline var MAR = 2;
+	inline var APR = 3;
+	inline var MAY = 4;
+	inline var JUN = 5;
+	inline var JUL = 6;
+	inline var AUG = 7;
+	inline var SEP = 8;
+	inline var OCT = 9;
+	inline var NOV = 10;
+	inline var DEC = 11;
 	inline var WEEK = 7;
 
 	inline function new(month) {
@@ -62,7 +62,7 @@ class Solution2 extends AbSolution {
 		var date = 7;
 		for (currentYear in 1900...2001) {
 			var currentMonth = Month.JAN;
-			while (currentMonth <= 12) {
+			while (currentMonth <= Month.DEC) {
 				var daysInMonth = currentMonth.dayCount(currentYear);
 				while (date < daysInMonth) {
 					if (date == 1 && currentYear > 1900) {
