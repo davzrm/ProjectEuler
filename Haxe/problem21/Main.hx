@@ -10,5 +10,8 @@ class Main {
 
 		var solution2 = new Solution2();
 		solution2.getSolution();
+
+		var solution3 = new Solution3();
+		solution3.getSolution();
 	}
 }
