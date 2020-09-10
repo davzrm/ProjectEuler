@@ -8,21 +8,16 @@ using StringTools;
 
 /**
  * Brute force
+ * With character codes instead.
+ * The alphabet starts with the character code of 65
+ * that is, A -> 65
+ * &, Z -> 90
+ *
+ * Therefore, we only need to minus 64 to get the letter value.
  */
-class Solution1 extends AbSolution {
-	var valueMap:Map<String, Int>;
-
+class Solution2 extends AbSolution {
 	public function new() {
 		super();
-		var letterValuePath = "letterValue.json";
-		var valueString = File.getContent(letterValuePath);
-		var res = Json.parse(valueString);
-
-		valueMap = [
-			for (i in Reflect.fields(res))
-				Std.string(i) => Reflect.field(res, i)
-
-		];
 	}
 
 	private override function computeSolution() {
@@ -43,9 +38,8 @@ class Solution1 extends AbSolution {
 
 	public function computeNameValue(name:String) {
 		var nameValue = 0;
-		var nameArray = name.split('');
-		for (letter in nameArray) {
-			nameValue += valueMap[letter];
+		for (i in 0...name.length) {
+			nameValue += name.fastCodeAt(i) - 64;
 		}
 
 		return nameValue;
