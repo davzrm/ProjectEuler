@@ -14,6 +14,7 @@ class Solution2 extends AbSolution {
 
 	private override function computeSolution() {
 		var upperBound = 28123 + 1;
+
 		var primeSieve = computeSieve(upperBound);
 
 		var abundantArray = [];
@@ -32,7 +33,7 @@ class Solution2 extends AbSolution {
 			}
 		}
 
-		var sieveAbundantSum = [for (i in 0...upperBound) false];
+		var sumAbundantSieve = [for (i in 0...upperBound) false];
 		var isBeyondLimit = false;
 		for (firstNumber in abundantArray) {
 			if (isBeyondLimit) {
@@ -42,7 +43,7 @@ class Solution2 extends AbSolution {
 			for (secondNumber in abundantArray) {
 				var sum = firstNumber + secondNumber;
 				if (sum < upperBound) {
-					sieveAbundantSum[sum] = true;
+					sumAbundantSieve[sum] = true;
 				} else {
 					isBeyondLimit = firstNumber == secondNumber ? true : false;
 					break;
@@ -51,8 +52,8 @@ class Solution2 extends AbSolution {
 		}
 
 		var sumCannotAdd2Abundant = 0;
-		for (i in 0...sieveAbundantSum.length) {
-			if (sieveAbundantSum[i] == false) {
+		for (i in 0...sumAbundantSieve.length) {
+			if (sumAbundantSieve[i] == false) {
 				sumCannotAdd2Abundant += i;
 			}
 		}

@@ -32,7 +32,7 @@ class Solution1 extends AbSolution {
 		// using a sieve
 		// If the sum of two EQUAL abundant numbers > upperbound, we break early
 		// (only works if sorted in ascending & starting from smallest)
-		var sieveAbundantSum = [for (i in 0...upperBound) false];
+		var sumAbundantSieve = [for (i in 0...upperBound) false];
 		var isBeyondLimit = false;
 		for (firstNumber in abundantArray) {
 			if (isBeyondLimit) {
@@ -42,7 +42,7 @@ class Solution1 extends AbSolution {
 			for (secondNumber in abundantArray) {
 				var sum = firstNumber + secondNumber;
 				if (sum < upperBound) {
-					sieveAbundantSum[sum] = true;
+					sumAbundantSieve[sum] = true;
 				} else {
 					isBeyondLimit = firstNumber == secondNumber ? true : false;
 					break;
@@ -52,8 +52,8 @@ class Solution1 extends AbSolution {
 
 		// get all false indexes from the sieve
 		var sumCannotAdd2Abundant = 0;
-		for (i in 0...sieveAbundantSum.length) {
-			if (sieveAbundantSum[i] == false) {
+		for (i in 0...sumAbundantSieve.length) {
+			if (sumAbundantSieve[i] == false) {
 				sumCannotAdd2Abundant += i;
 			}
 		}
