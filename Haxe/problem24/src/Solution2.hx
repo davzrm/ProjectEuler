@@ -5,8 +5,9 @@ import lib.AbSolution;
 
 /**
  * Brute force
+ * Verify permutation with sorting.
  */
-class Solution1 extends AbSolution {
+class Solution2 extends AbSolution {
 	public function new() {
 		super();
 	}
@@ -29,50 +30,26 @@ class Solution1 extends AbSolution {
 	 * @param digitString
 	 */
 	public function computePermutation(digitString:String) {
-		// Get a string of the digits
 		var digitStringArray = digitString.split('');
 
-		// Sort them in descending order to retrieve the upper bound
-		// Sort them in ascending order to retrieve the lower bound
 		digitStringArray.sort((prevElement, nextElement) -> prevElement < nextElement ? 1 : -1);
-		var upperBound:Int64 = Int64.parseString(digitStringArray.join(''));
+		var digitStringVerify = digitStringArray.join('');
+		var upperBound:Int64 = Int64.parseString(digitStringVerify);
 		digitStringArray.reverse();
 		var lowerBound = Std.parseInt(digitStringArray.join(''));
-
-		// Create a dictionary,
-		// every digit in the original number is a key
-		// every value is a the number of occurences of the digit
-		var verifyPermutationDict:Map<String, Int> = [];
-		for (digit in digitStringArray) {
-			verifyPermutationDict[digit] = verifyPermutationDict.exists(digit) ? verifyPermutationDict[digit]++ : 1;
-		}
 
 		var permutationArray = [];
 		var index:Int64 = lowerBound;
 		while (index <= upperBound) {
 			var numberStringSplit = Std.string(index).split('');
-			var tempMap = verifyPermutationDict.copy();
 
-			var isPermutation = true;
-			for (digit in numberStringSplit) {
-				// If digit not in dictionary, or more than the count of digits in the original number
-				if (!tempMap.exists(digit) || --tempMap[digit] < 0) {
-					isPermutation = false;
-					break;
-				}
-			}
-			// Check if all digits in original number are used
 			var placeValueCountDifference = digitStringArray.length - numberStringSplit.length;
-			for (leadingZero in 0...placeValueCountDifference) {
-				tempMap['0']--;
+			for (leadingZeros in 0...placeValueCountDifference) {
+				numberStringSplit.push('0');
 			}
-			for (count in tempMap) {
-				if (count != 0) {
-					isPermutation = false;
-					break;
-				}
-			}
-			if (isPermutation) {
+			numberStringSplit.sort((prevElement, nextElement) -> prevElement < nextElement ? 1 : -1);
+			var numberString = numberStringSplit.join('');
+			if (digitStringVerify == numberString) {
 				permutationArray.push(index);
 			}
 			index++;
