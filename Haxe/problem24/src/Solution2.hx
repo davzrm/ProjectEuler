@@ -1,11 +1,12 @@
 package src;
 
-import haxe.Int64;
 import lib.AbSolution;
 
 /**
  * Brute force
+ * But with array, instead of Int64.
  * Verify permutation with sorting.
+ * ('cause Int64 slow)
  */
 class Solution2 extends AbSolution {
 	public function new() {
@@ -17,9 +18,9 @@ class Solution2 extends AbSolution {
 		var permutationArray = computePermutation(numberString);
 
 		if (permutationArray.length >= 1000000) {
-			trace('The millionth permutation is: ${Int64.toInt(permutationArray[999999])}');
+			trace('The millionth permutation is: ${permutationArray[999999]}');
 		} else {
-			trace('The last permutation is: ${Int64.toInt(permutationArray[permutationArray.length - 1])}');
+			trace('The last permutation is: ${permutationArray[permutationArray.length - 1]}');
 		}
 	}
 
@@ -33,26 +34,36 @@ class Solution2 extends AbSolution {
 		var digitStringArray = digitString.split('');
 
 		digitStringArray.sort((prevElement, nextElement) -> prevElement < nextElement ? 1 : -1);
-		var digitStringVerify = digitStringArray.join('');
-		var upperBound:Int64 = Int64.parseString(digitStringVerify);
+		var upperBound:String = digitStringArray.join('');
 		digitStringArray.reverse();
-		var lowerBound = Std.parseInt(digitStringArray.join(''));
+		var digitIntArray = digitStringArray.map(a -> Std.parseInt(a));
 
 		var permutationArray = [];
-		var index:Int64 = lowerBound;
-		while (index <= upperBound) {
-			var numberStringSplit = Std.string(index).split('');
+		while (true) {
+			var numberString = digitIntArray.join('');
+			if (numberString > upperBound) {
+				break;
+			}
 
-			var placeValueCountDifference = digitStringArray.length - numberStringSplit.length;
-			for (leadingZeros in 0...placeValueCountDifference) {
-				numberStringSplit.push('0');
+			// verify if it is a permutation
+			// by comparing its digits to the upperbound's
+			var copyArray = digitIntArray.copy();
+			copyArray.sort((prevElement, nextElement) -> prevElement < nextElement ? 1 : -1);
+			var tempString = copyArray.join('');
+			if (tempString == upperBound) {
+				permutationArray.push(numberString);
 			}
-			numberStringSplit.sort((prevElement, nextElement) -> prevElement < nextElement ? 1 : -1);
-			var numberString = numberStringSplit.join('');
-			if (digitStringVerify == numberString) {
-				permutationArray.push(index);
+
+			// have an array of integers
+			// increment the singles place value
+			// spill over when needed
+			var index = digitIntArray.length - 1;
+			digitIntArray[index]++;
+			while (digitIntArray[index] >= 10) {
+				digitIntArray[index] = 0;
+				digitIntArray[index - 1]++;
+				index--;
 			}
-			index++;
 		}
 
 		return permutationArray;
