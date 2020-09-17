@@ -13,9 +13,10 @@ class Solution1 extends AbSolution {
 
 	private override function computeSolution() {
 		var numberString = '0123456789';
+		var term = 1000000;
 		var permutationArray = computePermutation(numberString);
 
-		if (permutationArray.length >= 1000000) {
+		if (permutationArray.length >= term) {
 			trace('The millionth permutation is: ${Int64.toInt(permutationArray[999999])}');
 		} else {
 			trace('The last permutation is: ${Int64.toInt(permutationArray[permutationArray.length - 1])}');
