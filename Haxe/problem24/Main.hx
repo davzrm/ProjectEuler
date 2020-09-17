@@ -16,5 +16,8 @@ class Main {
 
 		var solution4 = new Solution4();
 		solution4.getSolution();
+
+		var solution5 = new Solution5();
+		solution5.getSolution();
 	}
 }
